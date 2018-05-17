@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'idea'
+}
+
+mainClassName = 'io.gamov.hackers.passwords.App'
+
+dependencies {
+    compile 'com.google.guava:guava:23.0'
+    compile "org.apache.kafka:kafka-streams:1.1.0" +
+            ""
+
+    testCompile 'junit:junit:4.12'
+}
+
+repositories {
+    jcenter()
+}
