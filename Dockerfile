@@ -11,10 +11,10 @@ RUN ./gradlew --version
 RUN ./gradlew shadowJar
 
 # Stage 2 (to create a downsized "container executable", ~87MB)
-FROM openjdk:8-jre-alpine3.7
-#FROM azul/zulu-openjdk-alpine:8
+#FROM openjdk:8-jre-alpine3.7
+FROM azul/zulu-openjdk-debian:8
 WORKDIR /root/
-RUN apk add --no-cache bash libc6-compat
+#RUN apk add --no-cache bash libc6-compat
 COPY --from=builder /usr/src/myapp/build/libs/app-all.jar .
 
 EXPOSE 8123
