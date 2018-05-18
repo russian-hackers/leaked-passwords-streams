@@ -14,6 +14,7 @@ RUN ./gradlew shadowJar
 FROM openjdk:8-jre-alpine3.7
 #FROM azul/zulu-openjdk-alpine:8
 WORKDIR /root/
+RUN apk add --no-cache bash libc6-compat
 COPY --from=builder /usr/src/myapp/build/libs/app-all.jar .
 
 EXPOSE 8123
