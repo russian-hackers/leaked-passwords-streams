@@ -2,14 +2,21 @@ plugins {
     id 'java'
     id 'application'
     id 'idea'
+    id "com.github.johnrengelman.shadow" version "2.0.4"
 }
 
 mainClassName = 'io.gamov.hackers.passwords.App'
+archivesBaseName = 'app'
 
 dependencies {
     compile 'com.google.guava:guava:23.0'
-    compile "org.apache.kafka:kafka-streams:1.1.0" +
-            ""
+    compile "org.apache.kafka:kafka-streams:1.1.0"
+    //compile 'io.confluent:kafka-streams-avro-serde:4.1.0'
+    compile 'org.projectlombok:lombok:1.16.18'
+    compile "org.slf4j:slf4j-log4j12:1.7.25"
+    compile "com.fasterxml.jackson.core:jackson-databind:2.9.3"
+    compile group: 'com.google.code.gson', name: 'gson', version:'2.6.1'
+
 
     testCompile 'junit:junit:4.12'
 }
